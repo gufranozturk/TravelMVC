@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Entity.Models.Sehir>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Anasayfa</title>
+</head>
+<body>
+    <br />
+    <p>
+        @Html.ActionLink("Yeni Ekle", "Create")
+    </p>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SehirAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SehirBölge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResimURL)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SehirAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SehirBölge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aciklama)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResimURL)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SehirID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.SehirID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SehirID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿@model Entity.Models.Sehir
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detaylar</title>
+</head>
+<body>
+    <div>
+        <h4>@Model.SehirAd</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SehirAd)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SehirAd)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SehirBölge)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SehirBölge)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aciklama)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ResimURL)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ResimURL)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Düzenle", "Edit", new { id = Model.SehirID }) |
+        @Html.ActionLink("Listeyi Gör", "Index")
+    </p>
+</body>
+</html>

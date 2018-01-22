@@ -1,0 +1,53 @@
+﻿@using Entity.Models
+@model Sehir
+@{
+    Layout = null;
+}
+
+<!-- Header -->
+<div id="header-wrapper" class="wrapper">
+    <div id="header">
+
+        <!-- Logo -->
+        <div id="logo">
+            <h1><a href="index.html">Gez</a></h1>
+            <p>Ana sayfaya dönek için tıklayın !!</p>
+        </div>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li class="current"><a href="index.html">Anasayfa</a></li>
+                <li>
+                    <a href="#">Tanı!</a>
+                    <ul>
+                        @foreach (Sehir item in Model)
+                        {
+                            <li>
+                                <a href="#">@item.SehirBölge</a>
+
+                                <ul>
+
+                                    @foreach (Sehir il in Model)
+                                    {
+                                        if (item.SehirBölge == il.SehirBölge)
+                                        {
+                                            <li><a href="/Home/SehirDetay/@item.SehirID">@il.SehirAd</a></li>
+                                        }
+
+                                    }
+                                </ul>
+                            </li>
+                        }
+
+
+                    </ul>
+                </li>
+                <li><a href="left-sidebar.html">Gez!</a></li>
+                <li><a href="right-sidebar.html">Ye,İç!</a></li>
+                <li><a href="no-sidebar.html">Tavsiye Et!</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</div>

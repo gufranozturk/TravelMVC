@@ -1,0 +1,75 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    Layout = null;
+}
+<link href="~/Content/css/main.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    <body class="homepage">
+        <div id="page-wrapper">
+            @Html.Action("AnasayfaListe", "Home")
+            <div class="wrapper style3">
+
+                @if (Request.IsAuthenticated)
+        {
+
+            <div class="title">Merhaba @User.Identity.GetUserName() !</div>
+            <div id="highlights" class="container">
+
+                <p></p>
+                <div class="row 150%">
+
+
+                    <div class="4u 12u(mobile)">
+                        <section class="highlight">
+                            <a href="#" class="image featured"><img src="/Content/images/sehirekle.jpg" alt="" /></a>
+                            <h3><a href="#">Şehir Ekle !</a></h3>
+                            <p>Şehir eklemek için tıklayın</p>
+                            <ul class="actions">
+                                <li><a href="/Sehir/Create" class="button style1">Ekle</a></li>
+                            </ul>
+                        </section>
+                    </div>
+
+                    <div class="4u 12u(mobile)">
+                        <section class="highlight">
+                            <a href="#" class="image featured"><img src="/Content/images/yeicekle.jpg" alt="" /></a>
+                            <h3><a href="#">Ye İç Ekle !</a></h3>
+                            <p>Mekan eklemek için tıklayın !</p>
+                            <ul class="actions">
+                                <li><a href="/YemeIcme/Create" class="button style1">Ekle</a></li>
+                            </ul>
+                        </section>
+                    </div>
+
+                    <div class="4u 12u(mobile)">
+                        <section class="highlight">
+                            <a href="#" class="image featured"><img src="/Content/images/gezekle.jpg" alt="" /></a>
+                            <h3><a href="#">Gez Ekle !</a></h3>
+                            <p>Mekan eklemek için tıklayın !</p>
+                            <ul class="actions">
+                                <li><a href="/Gezi/Create" class="button style1">Ekle</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br /><br /><br /><br />
+            <br />
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken(){
+        <center><a href="javascript:document.getElementById('logoutForm').submit()" class="button style1">Çıkış Yap !</a></center>
+}
+
+        @*@Session["username"] == null;*@
+}
+
+}
+            </div>
+        </div>
+    </body>
+}

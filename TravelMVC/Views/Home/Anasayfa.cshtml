@@ -1,0 +1,218 @@
+﻿@using Entity.Models
+@model List<Sehir>
+
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Escape Velocity by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/Content/css/main.css" rel="stylesheet" />
+</head>
+
+@using (Html.BeginForm())
+{
+    <body class="homepage">
+        <div id="page-wrapper">
+            @Html.Partial("AnasayfaListe")
+
+            <!-- Intro -->
+            <div id="intro-wrapper" class="wrapper style1">
+                <div class="title">HOŞGELDİN</div>
+                <section id="intro" class="container">
+                    <p class="style1"></p>
+                    <p class="style2">
+                        Plan yapmadan önce uğrayın !
+                    </p>
+                    <p class="style3">
+                        Türkiye’de gezmek kolay değil. Şartlar, tembellik, erteleme, önceliklerin değişmesi derken gezmeye/keşfetmeye
+                        her zaman üvey evlat gibi davranıyoruz. Bu sebeple kozasından çıkan, gezmelere doyamayan, bu tutkuyu canlı tutan, en önemlisi
+                        başkalarına ilham veren insanlarsanız kayıt olarak siz de deneyimlerinizi bizimle yaplaşabilirsiniz. Gezdiğiniz, yediğiniz, içtiğiniz mekanları eklemeyi de unutmayın !
+                    </p>
+                    <ul class="actions">
+                        @*<li><a href="#" class="button style3 big"></a></li>*@
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Main -->
+            <div class="wrapper style2">
+                <div class="title">ŞEHİRLER</div>
+                <div id="main" class="container">
+
+                    <!-- Image -->
+                    <a href="#" class="image featured">
+                        <img src="~/Content/images/index/index2.jpg" />
+                    </a>
+
+                    <!-- Features -->
+                    <section id="features">
+                        <header class="style1">
+                            <h2>Gezmeye buradan başla !</h2>
+                            <p></p>
+                        </header>
+                        <div class="feature-list">
+                            <div class="row">
+
+                                @foreach (var item in Model)
+                                {
+                                    <div class="6u 12u(mobile)">
+                                        <section>
+                                            <center>
+                                                <img src="/Content/uploads/@item.ResimURL" width="400" height="150" />
+                                            </center>
+                                            <p>  </p>
+                                            <p>  </p>
+                                            <br />
+                                            <center><h3><a href="/Home/SehirDetay/@item.SehirID">@item.SehirAd</a></h3></center>
+                                        </section>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                        <ul class="actions actions-centered">
+                            <li><a href="/Home/GeziDetay" class="button style1 big">Şehirde Eğlence</a></li>
+                            <li><a href="/Home/YemeIcmeDetay" class="button style2 big">Şehirde Yemek</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+            </div>
+            <!-- Highlights -->
+            <div class="wrapper style3">
+                <div class="title">MEKANLAR</div>
+                <div id="highlights" class="container">
+                    <div class="row 150%">
+
+                        @foreach (var item in Model)
+                        {
+                            foreach (var item1 in item.GeziList)
+                            {
+                                <div class="4u 12u(mobile)">
+                                    <section class="highlight">
+                                        <a href="#" class="image featured"><img src="/Content/uploads/@item1.ResimURL"  /></a>
+                                        <h3><a href="#">@item1.MekanAd</a></h3>
+                                        <p>@item1.MekanAdres</p>
+                                        <ul class="actions">
+                                            <li><a href="#" class="button style1">oku</a></li>
+                                        </ul>
+                                    </section>
+                                </div>
+
+                            }
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Footer -->
+            <div id="footer-wrapper" class="wrapper">
+                <div class="title">İLETİŞİM</div>
+                <div id="footer" class="container">
+                    <header class="style1">
+                        <h2>Bizimle İletişime Geçin</h2>
+                        <p>
+
+                        </p>
+                    </header>
+                    <hr />
+                    <div class="row 150%">
+                        <div class="6u 12u(mobile)">
+
+                            <!-- Contact Form -->
+                            <section>
+                                <form method="post" action="#">
+                                    <div class="row 50%">
+                                        <div class="6u 12u(mobile)">
+                                            <input type="text" name="name" id="contact-name" placeholder="İsim..." />
+                                        </div>
+                                        <div class="6u 12u(mobile)">
+                                            <input type="text" name="email" id="contact-email" placeholder="E-mail..." />
+                                        </div>
+                                    </div>
+                                    <div class="row 50%">
+                                        <div class="12u">
+                                            <textarea name="message" id="contact-message" placeholder="Mesaj..." rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="12u">
+                                            <ul class="actions">
+                                                <li><input type="submit" class="style1" value="Gönder" /></li>
+                                                <li><input type="reset" class="style2" value="Geri Al" /></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
+
+                        </div>
+                        <div class="6u 12u(mobile)">
+
+                            <!-- Contact -->
+                            <section class="feature-list small">
+                                <div class="row">
+                                    <div class="6u 12u(mobile)">
+                                        <section>
+                                            <h3 class="icon fa-home">Adres</h3>
+                                            <p>
+                                                Untitled Corporation<br />
+                                                1234 Somewhere Rd #987<br />
+                                                Nashville, TN 00000-0000
+                                            </p>
+                                        </section>
+                                    </div>
+                                    <div class="6u 12u(mobile)">
+                                        <section>
+                                            <h3 class="icon fa-comment">Sosyal</h3>
+                                            <p>
+                                                <a href="#">untitled-corp</a><br />
+                                                <a href="#">linkedin.com/untitled</a><br />
+                                                <a href="#">facebook.com/untitled</a>
+                                            </p>
+                                        </section>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="6u 12u(mobile)">
+                                        <section>
+                                            <h3 class="icon fa-envelope">E-mail</h3>
+                                            <p>
+                                                <a href="#">info@untitled.tld</a>
+                                            </p>
+                                        </section>
+                                    </div>
+                                    <div class="6u 12u(mobile)">
+                                        <section>
+                                            <h3 class="icon fa-phone">Telefon</h3>
+                                            <p>
+                                                (000) 555-0000
+                                            </p>
+                                        </section>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+                <div id="copyright">
+                    <ul>
+                        <li>&copy; Untitled</li>
+                        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+}
+</html>

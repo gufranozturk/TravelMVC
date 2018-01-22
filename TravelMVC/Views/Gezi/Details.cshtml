@@ -1,0 +1,74 @@
+﻿@model Entity.Models.Gezi
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>@Model.MekanAd</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MekanAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MekanAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MekanAdres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MekanAdres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Saatler)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saatler)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAciklama)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SehirAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SehirAd.SehirAd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MekanID }) |
+    @Html.ActionLink("Listeyi Gör", "Index")
+</p>
